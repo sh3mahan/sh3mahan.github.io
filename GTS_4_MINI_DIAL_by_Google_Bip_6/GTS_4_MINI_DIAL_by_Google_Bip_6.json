@@ -1,0 +1,674 @@
+﻿{
+  "WatchFace_Info": {
+    "DeviceName": "Bip 6",
+    "WatchFaceId": 2804142,
+    "Preview": "Preview",
+    "WatchFaceVersion": 1
+  },
+  "ScreenNormal": {
+    "Background": {
+      "visible": true,
+      "BackgroundImage": {
+        "position": -1,
+        "visible": true,
+        "show_level": "ONLY_NORMAL",
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 450,
+        "src": "BG0",
+        "alpha": 255
+      }
+    },
+    "Elements": [
+      {
+        "elementName": "ElementStatuses",
+        "visible": true,
+        "Alarm": {
+          "position": 4,
+          "visible": true,
+          "show_level": "ONLY_NORMAL",
+          "x": 241,
+          "y": 421,
+          "src": "icon_alarm",
+          "alpha": 255,
+          "type": "Alarm"
+        },
+        "Bluetooth": {
+          "position": 3,
+          "visible": true,
+          "show_level": "ONLY_NORMAL",
+          "x": 167,
+          "y": 421,
+          "src": "icon_bl_off",
+          "alpha": 255,
+          "type": "Bluetooth"
+        },
+        "DND": {
+          "position": 2,
+          "visible": true,
+          "show_level": "ONLY_NORMAL",
+          "x": 204,
+          "y": 421,
+          "src": "icon_dnd",
+          "alpha": 255,
+          "type": "DND"
+        },
+        "Lock": {
+          "position": 1,
+          "visible": true,
+          "show_level": "ONLY_NORMAL",
+          "x": 130,
+          "y": 421,
+          "src": "icon_bl_lock",
+          "alpha": 255,
+          "type": "Lock"
+        }
+      },
+      {
+        "elementName": "ElementSpO2",
+        "visible": true,
+        "Number": {
+          "position": 1,
+          "visible": true,
+          "align": "CENTER_H",
+          "show_level": "",
+          "imageX": 174,
+          "imageY": 298,
+          "space": -1,
+          "zero": false,
+          "img_First": "Step_0",
+          "icon": "sp02_icon",
+          "iconPosX": 176,
+          "iconPosY": 252,
+          "angle": 0,
+          "follow": false,
+          "unit_in_alignment": false,
+          "alpha": 255,
+          "icon_alpha": 255
+        }
+      },
+      {
+        "elementName": "DateWeek",
+        "visible": true,
+        "Images": {
+          "position": 1,
+          "visible": true,
+          "shortcut": false,
+          "show_level": "ONLY_NORMAL",
+          "X": 260,
+          "Y": 230,
+          "img_First": "ru_01_mon",
+          "image_length": 0,
+          "alpha": 255
+        }
+      },
+      {
+        "elementName": "DateDay",
+        "visible": true,
+        "Number": {
+          "position": 1,
+          "visible": true,
+          "align": "RIGHT",
+          "show_level": "ONLY_NORMAL",
+          "imageX": 254,
+          "imageY": 200,
+          "space": -1,
+          "zero": true,
+          "img_First": "Step_0",
+          "unit": "Separate_date",
+          "iconPosX": 0,
+          "iconPosY": 0,
+          "angle": 0,
+          "follow": false,
+          "unit_in_alignment": false,
+          "alpha": 255,
+          "icon_alpha": 255,
+          "type": "DAY"
+        }
+      },
+      {
+        "elementName": "DateMonth",
+        "visible": true,
+        "Number": {
+          "position": 1,
+          "visible": true,
+          "align": "LEFT",
+          "show_level": "ONLY_NORMAL",
+          "imageX": 290,
+          "imageY": 200,
+          "space": -1,
+          "zero": true,
+          "img_First": "Step_0",
+          "icon": "Calendar_icon",
+          "iconPosX": 268,
+          "iconPosY": 165,
+          "angle": 0,
+          "follow": false,
+          "unit_in_alignment": false,
+          "alpha": 255,
+          "icon_alpha": 255,
+          "type": "MONTH"
+        }
+      },
+      {
+        "elementName": "ElementBattery",
+        "visible": true,
+        "Text_rotation": {
+          "position": 2,
+          "visible": true,
+          "align": "CENTER_H",
+          "show_level": "",
+          "imageX": 30,
+          "imageY": 58,
+          "space": 0,
+          "zero": false,
+          "img_First": "Bat_0",
+          "unit": "Percent",
+          "iconPosX": 0,
+          "iconPosY": 0,
+          "angle": -45,
+          "follow": false,
+          "unit_in_alignment": false,
+          "alpha": 255,
+          "icon_alpha": 255
+        },
+        "Circle_Scale": {
+          "position": 1,
+          "visible": true,
+          "end_angle": 70,
+          "show_level": "",
+          "center_x": 195,
+          "center_y": 223,
+          "start_angle": -70,
+          "color": "0xFF55624C",
+          "radius": 204,
+          "line_width": 5,
+          "line_cap": "Rounded",
+          "mirror": false,
+          "inversion": false,
+          "alpha": 255
+        }
+      }
+    ]
+  },
+  "ScreenAOD": {
+    "Elements": [
+      {
+        "elementName": "DateMonth",
+        "visible": true,
+        "Number": {
+          "position": 1,
+          "visible": true,
+          "align": "LEFT",
+          "show_level": "ONLY_AOD",
+          "imageX": 200,
+          "imageY": 348,
+          "space": -1,
+          "zero": true,
+          "img_First": "T_0",
+          "iconPosX": 0,
+          "iconPosY": 0,
+          "angle": 0,
+          "follow": false,
+          "unit_in_alignment": false,
+          "alpha": 255,
+          "icon_alpha": 255,
+          "type": "MONTH"
+        }
+      },
+      {
+        "elementName": "DateDay",
+        "visible": true,
+        "Number": {
+          "position": 1,
+          "visible": true,
+          "align": "RIGHT",
+          "show_level": "ONLY_AOD",
+          "imageX": 159,
+          "imageY": 348,
+          "space": -1,
+          "zero": true,
+          "img_First": "T_0",
+          "unit": "Separate_date",
+          "iconPosX": 0,
+          "iconPosY": 0,
+          "angle": 0,
+          "follow": false,
+          "unit_in_alignment": false,
+          "alpha": 255,
+          "icon_alpha": 255,
+          "type": "DAY"
+        }
+      },
+      {
+        "elementName": "DateWeek",
+        "visible": true,
+        "Images": {
+          "position": 1,
+          "visible": true,
+          "shortcut": false,
+          "show_level": "ONLY_AOD",
+          "X": 168,
+          "Y": 383,
+          "img_First": "ru_01_mon",
+          "image_length": 0,
+          "alpha": 255
+        }
+      },
+      {
+        "elementName": "DigitalTime_v2",
+        "visible": true,
+        "Group_Minute": {
+          "position": 2,
+          "Number": {
+            "position": -1,
+            "visible": true,
+            "align": "LEFT",
+            "show_level": "ONLY_AOD",
+            "imageX": 201,
+            "imageY": 30,
+            "space": -1,
+            "zero": true,
+            "img_First": "T_0",
+            "iconPosX": 0,
+            "iconPosY": 0,
+            "angle": 0,
+            "follow": false,
+            "unit_in_alignment": false,
+            "alpha": 255,
+            "icon_alpha": 255
+          }
+        },
+        "Group_Hour": {
+          "position": 1,
+          "Number": {
+            "position": -1,
+            "visible": true,
+            "align": "RIGHT",
+            "show_level": "ONLY_AOD",
+            "imageX": 159,
+            "imageY": 30,
+            "space": -1,
+            "zero": true,
+            "img_First": "T_0",
+            "unit": "Separate",
+            "iconPosX": 0,
+            "iconPosY": 0,
+            "angle": 0,
+            "follow": false,
+            "unit_in_alignment": false,
+            "alpha": 255,
+            "icon_alpha": 255
+          }
+        }
+      },
+      {
+        "elementName": "AnalogTime",
+        "visible": true,
+        "show_level": "",
+        "Minute": {
+          "position": 1,
+          "visible": true,
+          "show_level": "ONLY_AOD",
+          "src": "Hand_min",
+          "center_x": 195,
+          "center_y": 223,
+          "pos_x": 3,
+          "pos_y": 173,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_path": "Pin",
+          "cover_x": 189,
+          "cover_y": 217,
+          "scale_x": 0,
+          "scale_y": 0
+        },
+        "Hour": {
+          "position": 2,
+          "visible": true,
+          "show_level": "ONLY_AOD",
+          "src": "Hand_hour",
+          "center_x": 195,
+          "center_y": 223,
+          "pos_x": 20,
+          "pos_y": 122,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_x": 0,
+          "cover_y": 0,
+          "scale_x": 0,
+          "scale_y": 0
+        }
+      }
+    ]
+  },
+  "Editable_Elements": {
+    "selected_zone": 0,
+    "visible": true,
+    "Watchface_edit_group": [
+      {
+        "selected_element": 0,
+        "x": 136,
+        "y": 74,
+        "h": 116,
+        "w": 116,
+        "optional_types_list": [
+          {
+            "type": "STEP",
+            "preview": "ez(1)_STEP"
+          },
+          {
+            "type": "CAL",
+            "preview": "ez(1)_CAL"
+          },
+          {
+            "type": "HEART",
+            "preview": "ez(1)_HEART"
+          }
+        ],
+        "Elements": [
+          {
+            "elementName": "ElementSteps",
+            "visible": true,
+            "Number": {
+              "position": 2,
+              "visible": true,
+              "align": "CENTER_H",
+              "show_level": "",
+              "imageX": 160,
+              "imageY": 116,
+              "space": 0,
+              "zero": false,
+              "img_First": "Step_0",
+              "iconPosX": 0,
+              "iconPosY": 0,
+              "angle": 0,
+              "follow": false,
+              "unit_in_alignment": false,
+              "alpha": 255,
+              "icon_alpha": 255
+            },
+            "Circle_Scale": {
+              "position": 1,
+              "visible": true,
+              "end_angle": 334,
+              "show_level": "",
+              "center_x": 195,
+              "center_y": 132,
+              "start_angle": 26,
+              "color": "0xFFB7F397",
+              "radius": 46,
+              "line_width": 6,
+              "line_cap": "Rounded",
+              "mirror": false,
+              "inversion": false,
+              "alpha": 255
+            },
+            "Icon": {
+              "position": 3,
+              "visible": true,
+              "show_level": "",
+              "x": 176,
+              "y": 73,
+              "src": "Step_icon",
+              "alpha": 255
+            }
+          },
+          {
+            "elementName": "ElementCalories",
+            "visible": true,
+            "Number": {
+              "position": 1,
+              "visible": true,
+              "align": "CENTER_H",
+              "show_level": "",
+              "imageX": 167,
+              "imageY": 116,
+              "space": 0,
+              "zero": false,
+              "img_First": "Step_0",
+              "iconPosX": 0,
+              "iconPosY": 0,
+              "angle": 0,
+              "follow": false,
+              "unit_in_alignment": false,
+              "alpha": 255,
+              "icon_alpha": 255
+            },
+            "Icon": {
+              "position": 2,
+              "visible": true,
+              "show_level": "",
+              "x": 176,
+              "y": 73,
+              "src": "Ccal_icon",
+              "alpha": 255
+            }
+          },
+          {
+            "elementName": "ElementHeart",
+            "visible": true,
+            "Number": {
+              "position": 1,
+              "visible": true,
+              "align": "CENTER_H",
+              "show_level": "",
+              "imageX": 174,
+              "imageY": 116,
+              "space": 0,
+              "zero": false,
+              "img_First": "Step_0",
+              "iconPosX": 0,
+              "iconPosY": 0,
+              "angle": 0,
+              "follow": false,
+              "unit_in_alignment": false,
+              "alpha": 255,
+              "icon_alpha": 255
+            },
+            "Icon": {
+              "position": 2,
+              "visible": true,
+              "show_level": "",
+              "x": 176,
+              "y": 73,
+              "src": "Heart_icon",
+              "alpha": 255
+            }
+          }
+        ],
+        "tips_BG": "BG_Tooltips_1",
+        "tips_x": 108,
+        "tips_y": 39,
+        "tips_width": 174,
+        "tips_margin": 7,
+        "un_select_image": "Unactive_area",
+        "select_image": "Active_area"
+      },
+      {
+        "selected_element": 0,
+        "x": 46,
+        "y": 165,
+        "h": 116,
+        "w": 116,
+        "optional_types_list": [
+          {
+            "type": "DISTANCE",
+            "preview": "ez(2)_DISTANCE"
+          },
+          {
+            "type": "WEATHER",
+            "preview": "ez(2)_WEATHER"
+          }
+        ],
+        "Elements": [
+          {
+            "elementName": "ElementDistance",
+            "visible": true,
+            "Number": {
+              "position": 1,
+              "visible": true,
+              "align": "CENTER_H",
+              "show_level": "",
+              "imageX": 74,
+              "imageY": 208,
+              "space": -2,
+              "zero": false,
+              "img_First": "Step_0",
+              "iconPosX": 0,
+              "iconPosY": 0,
+              "dot_image": "Separate_date",
+              "angle": 0,
+              "follow": false,
+              "unit_in_alignment": false,
+              "alpha": 255,
+              "icon_alpha": 255
+            },
+            "Icon": {
+              "position": 2,
+              "visible": true,
+              "show_level": "",
+              "x": 86,
+              "y": 165,
+              "src": "Dist_icon",
+              "alpha": 255
+            }
+          },
+          {
+            "elementName": "ElementWeather",
+            "visible": true,
+            "Images": {
+              "position": 1,
+              "visible": true,
+              "shortcut": false,
+              "show_level": "",
+              "X": 86,
+              "Y": 165,
+              "img_First": "Weather_icon_00",
+              "image_length": 29,
+              "alpha": 255
+            },
+            "Number": {
+              "position": 2,
+              "visible": true,
+              "align": "CENTER_H",
+              "show_level": "",
+              "imageX": 78,
+              "imageY": 208,
+              "space": 0,
+              "zero": false,
+              "img_First": "Step_0",
+              "unit": "Weather_deg",
+              "iconPosX": 0,
+              "iconPosY": 0,
+              "negative_image": "Weather_neg",
+              "invalid_image": "25_weather",
+              "angle": 0,
+              "follow": false,
+              "unit_in_alignment": false,
+              "alpha": 255,
+              "icon_alpha": 255
+            }
+          }
+        ],
+        "tips_BG": "BG_Tooltips_1",
+        "tips_x": 16,
+        "tips_y": 132,
+        "tips_width": 174,
+        "tips_margin": 7,
+        "un_select_image": "Unactive_area",
+        "select_image": "Active_area"
+      }
+    ],
+    "mask": "Area_1",
+    "AOD_show": false,
+    "display_first": false,
+    "showEeditMode": false
+  },
+  "ElementEditablePointers": {
+    "elementName": "ElementEditablePointers",
+    "visible": true,
+    "selected_pointers": 0,
+    "config": [
+      {
+        "hour": {
+          "path": "Hand_hour",
+          "centerX": 195,
+          "centerY": 223,
+          "posX": 20,
+          "posY": 122
+        },
+        "minute": {
+          "path": "Hand_min",
+          "centerX": 195,
+          "centerY": 223,
+          "posX": 3,
+          "posY": 173
+        },
+        "second": {
+          "path": "Hand_sec",
+          "centerX": 195,
+          "centerY": 223,
+          "posX": 1,
+          "posY": 178
+        },
+        "preview": "pointer_edit_1_preview"
+      },
+      {
+        "hour": {
+          "path": "Hand_hour_filled",
+          "centerX": 195,
+          "centerY": 223,
+          "posX": 20,
+          "posY": 122
+        },
+        "minute": {
+          "path": "Hand_min",
+          "centerX": 195,
+          "centerY": 223,
+          "posX": 3,
+          "posY": 173
+        },
+        "second": {
+          "path": "Hand_sec",
+          "centerX": 195,
+          "centerY": 223,
+          "posX": 1,
+          "posY": 178
+        },
+        "preview": "pointer_edit_2_preview"
+      }
+    ],
+    "tips_bg": "BG_Tooltips_1",
+    "tips_x": 107,
+    "tips_y": 385,
+    "fg": "Hands_frame",
+    "AOD_show": false,
+    "showEeditMode": false,
+    "cover": {
+      "position": -1,
+      "visible": true,
+      "show_level": "",
+      "x": 189,
+      "y": 217,
+      "src": "Pin",
+      "alpha": 255
+    }
+  },
+  "DisconnectAlert": {
+    "enable": true,
+    "BluetoothOff": {
+      "vibrate": true,
+      "vibrateType": 9,
+      "toastShow": true,
+      "toastText": "Bluetooth off"
+    },
+    "BluetoothOn": {
+      "vibrate": true,
+      "vibrateType": 9,
+      "toastShow": true,
+      "toastText": "Bluetooth on"
+    }
+  }
+}
