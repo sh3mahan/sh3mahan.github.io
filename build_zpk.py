@@ -9,6 +9,10 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 
+class UserExit(Exception):
+    pass
+
+
 def setup_stdio() -> None:
     for stream in (sys.stdout, sys.stderr):
         try:
@@ -238,6 +242,34 @@ def build_zpk(
     return output
 
 
+def print_goodbye() -> None:
+    line = "─" * 36
+    print()
+    print(c(f"  {line}", Style.DIM))
+    print(c("  До встречи!", Style.MAGENTA, Style.BOLD))
+    print(c(f"  {line}", Style.DIM))
+    print()
+
+
+def print_exit_hint() -> None:
+    print(f"  {c('[0]', Style.DIM)} Выход   {c('Ctrl+C', Style.DIM)}")
+
+
+def read_input(prompt: str) -> str:
+    try:
+        return input(prompt).strip()
+    except (KeyboardInterrupt, EOFError):
+        raise UserExit from None
+
+
+def wait_continue() -> bool:
+    try:
+        read_input(c("Enter — продолжить... ", Style.DIM))
+        return True
+    except UserExit:
+        return False
+
+
 def clear_screen() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
@@ -266,7 +298,7 @@ def print_box(title: str, lines: list[str]) -> None:
 
 def ask_choice(prompt: str, max_value: int) -> int | None:
     while True:
-        raw = input(c(f"{prompt} ", Style.CYAN, Style.BOLD)).strip()
+        raw = read_input(c(f"{prompt} ", Style.CYAN, Style.BOLD))
         if raw.lower() in {"q", "quit", "exit", "0"}:
             return None
         if raw.isdigit():
@@ -291,7 +323,7 @@ def choose_project(projects: list[Project]) -> Project | None:
         print(f"      {status}")
         print()
 
-    print(f"  {c('[0]', Style.DIM)} Выход")
+    print_exit_hint()
     print()
     choice = ask_choice("Выберите проект:", len(projects))
     if choice in (None, 0):
@@ -314,7 +346,7 @@ def choose_zpk(project: Project) -> Path | None:
             f"{zpk.name} {c(f'— {size}', Style.DIM)}{marker}"
         )
     print()
-    print(f"  {c('[0]', Style.DIM)} Назад")
+    print(f"  {c('[0]', Style.DIM)} Назад   {c('Ctrl+C — выход', Style.DIM)}")
     print()
     choice = ask_choice("Выберите .zpk:", len(files))
     if choice in (None, 0):
@@ -342,7 +374,7 @@ def choose_action(project: Project) -> str | None:
     for index, (_, label) in enumerate(actions, start=1):
         print(f"  {c(f'[{index}]', Style.CYAN, Style.BOLD)} {label}")
     print()
-    print(f"  {c('[0]', Style.DIM)} Назад")
+    print(f"  {c('[0]', Style.DIM)} Назад   {c('Ctrl+C — выход', Style.DIM)}")
     print()
 
     choice = ask_choice("Выберите действие:", len(actions))
@@ -372,28 +404,34 @@ def interactive_menu() -> None:
     Style.enable_windows_vt()
     projects = discover_projects()
 
-    while True:
-        clear_screen()
-        print_header()
-        project = choose_project(projects)
-        if project is None:
-            print(c("До встречи!", Style.DIM))
-            return
-
+    try:
         while True:
             clear_screen()
             print_header()
-            action = choose_action(project)
-            if action is None:
-                break
+            project = choose_project(projects)
+            if project is None:
+                print_goodbye()
+                return
 
-            try:
-                run_action(project, action)
-            except SystemExit as exc:
-                print(c(f"{Style.FAIL} {exc}", Style.RED, Style.BOLD))
-                print()
+            while True:
+                clear_screen()
+                print_header()
+                action = choose_action(project)
+                if action is None:
+                    break
 
-            input(c("Enter — продолжить...", Style.DIM))
+                try:
+                    run_action(project, action)
+                except SystemExit as exc:
+                    print(c(f"{Style.FAIL} {exc}", Style.RED, Style.BOLD))
+                    print()
+
+                if not wait_continue():
+                    print_goodbye()
+                    return
+    except UserExit:
+        print()
+        print_goodbye()
 
 
 def cmd_unpack(args: argparse.Namespace) -> None:
@@ -452,7 +490,11 @@ def main() -> None:
     setup_stdio()
 
     if len(sys.argv) == 1:
-        interactive_menu()
+        try:
+            interactive_menu()
+        except KeyboardInterrupt:
+            print()
+            print_goodbye()
         return
 
     parser = build_parser()
