@@ -1,0 +1,161 @@
+﻿{
+  "WatchFace_Info": {
+    "DeviceName": "Bip 6",
+    "WatchFaceId": 2407104,
+    "WatchFaceVersion": 1
+  },
+  "ScreenNormal": {
+    "Background": {
+      "visible": true,
+      "BackgroundImage": {
+        "position": -1,
+        "visible": false,
+        "show_level": "",
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 450,
+        "src": "bg",
+        "alpha": 255
+      }
+    },
+    "Elements": [
+      {
+        "elementName": "AnalogTime",
+        "visible": true,
+        "show_level": "",
+        "Second": {
+          "position": 3,
+          "visible": true,
+          "show_level": "",
+          "src": "hand_sec",
+          "center_x": 195,
+          "center_y": 225,
+          "pos_x": 24,
+          "pos_y": 181,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_path": "chrome_pin",
+          "cover_x": 192,
+          "cover_y": 222,
+          "scale": "",
+          "scale_x": 0,
+          "scale_y": 0
+        },
+        "Minute": {
+          "position": 2,
+          "visible": true,
+          "show_level": "",
+          "src": "hand_min",
+          "center_x": 195,
+          "center_y": 225,
+          "pos_x": 11,
+          "pos_y": 172,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_path": "",
+          "cover_x": 0,
+          "cover_y": 0,
+          "scale": "",
+          "scale_x": 0,
+          "scale_y": 0
+        },
+        "Hour": {
+          "position": 1,
+          "visible": true,
+          "show_level": "",
+          "src": "hand_hour",
+          "center_x": 195,
+          "center_y": 225,
+          "pos_x": 14,
+          "pos_y": 117,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_path": "",
+          "cover_x": 0,
+          "cover_y": 0,
+          "scale": "",
+          "scale_x": 0,
+          "scale_y": 0
+        }
+      }
+    ]
+  },
+  "ScreenAOD": {
+    "Background": {
+      "visible": true,
+      "BackgroundImage": {
+        "position": -1,
+        "visible": false,
+        "show_level": "",
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 450,
+        "src": "bg_AOD",
+        "alpha": 255
+      }
+    },
+    "Elements": [
+      {
+        "elementName": "AnalogTime",
+        "visible": true,
+        "show_level": "",
+        "Second": {
+          "position": 3,
+          "visible": false,
+          "show_level": "",
+          "src": "hand_sec",
+          "center_x": 195,
+          "center_y": 225,
+          "pos_x": 24,
+          "pos_y": 181,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_path": "chrome_pin",
+          "cover_x": 192,
+          "cover_y": 222,
+          "scale": "",
+          "scale_x": 0,
+          "scale_y": 0
+        },
+        "Minute": {
+          "position": 2,
+          "visible": true,
+          "show_level": "",
+          "src": "AOD_hand_min",
+          "center_x": 195,
+          "center_y": 225,
+          "pos_x": 11,
+          "pos_y": 172,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_path": "AOD_chrome_pin",
+          "cover_x": 192,
+          "cover_y": 222,
+          "scale": "",
+          "scale_x": 0,
+          "scale_y": 0
+        },
+        "Hour": {
+          "position": 1,
+          "visible": true,
+          "show_level": "",
+          "src": "AOD_hand_hour",
+          "center_x": 195,
+          "center_y": 225,
+          "pos_x": 14,
+          "pos_y": 117,
+          "start_angle": 0,
+          "end_angle": 360,
+          "cover_path": "",
+          "cover_x": 0,
+          "cover_y": 0,
+          "scale": "",
+          "scale_x": 0,
+          "scale_y": 0
+        }
+      }
+    ]
+  }
+}
