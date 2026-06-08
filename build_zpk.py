@@ -63,8 +63,15 @@ class Project:
             )
         return files[0]
 
-    def default_output(self) -> Path:
-        return self.base / f"{self.name}.zpk"
+    def default_output(self, source_zpk: Path | None = None) -> Path:
+        if source_zpk:
+            stem = source_zpk.stem
+        else:
+            try:
+                stem = self.default_zpk().stem
+            except SystemExit:
+                stem = self.name
+        return self.base / f"{stem}_built.zpk"
 
     def is_ready_to_build(self) -> bool:
         return self.device_dir.is_dir() and self.app_side_zip.is_file()
@@ -195,8 +202,19 @@ def unpack_zpk(project: Project, zpk_path: Path | None = None) -> None:
     print(f"  {c('Файлов:', Style.DIM)}    {device_entries}")
 
 
-def build_zpk(project: Project, output_zpk: Path | None = None) -> Path:
-    output = resolve_path(output_zpk) if output_zpk else project.default_output()
+def build_zpk(
+    project: Project,
+    output_zpk: Path | None = None,
+    source_zpk: Path | None = None,
+) -> Path:
+    output = (
+        resolve_path(output_zpk)
+        if output_zpk
+        else project.default_output(source_zpk)
+    )
+
+    if output.exists() and output in project.zpk_files() and not output.stem.endswith("_built"):
+        raise SystemExit(f"Refusing to overwrite original .zpk: {output}")
 
     if not project.device_dir.is_dir():
         raise SystemExit(f"Missing device dir: {project.device_dir}")
@@ -315,7 +333,7 @@ def choose_action(project: Project) -> str | None:
 
     actions = [
         ("unpack", "Распаковать .zpk → _zpk_extract/"),
-        ("build", "Собрать .zpk из _zpk_extract/"),
+        ("build", "Собрать .zpk → {name}_built.zpk"),
         ("repack", "Распаковать → Собрать"),
     ]
 
@@ -340,13 +358,13 @@ def run_action(project: Project, action: str) -> None:
         if zpk:
             unpack_zpk(project, zpk)
     elif action == "build":
-        build_zpk(project)
+        build_zpk(project, source_zpk=project.default_zpk())
     elif action == "repack":
         zpk = choose_zpk(project)
         if zpk:
             unpack_zpk(project, zpk)
             print()
-            build_zpk(project)
+            build_zpk(project, source_zpk=zpk)
     print()
 
 
@@ -423,7 +441,7 @@ def build_parser() -> argparse.ArgumentParser:
         "-o",
         "--output",
         type=Path,
-        help="Output .zpk path (default: ./{project}.zpk)",
+        help="Output .zpk path (default: ./{source}_built.zpk)",
     )
     build_parser_cmd.set_defaults(func=cmd_build)
 
